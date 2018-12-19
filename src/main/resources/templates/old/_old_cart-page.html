@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Shop Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript" th:src="@{/webjars/jquery/3.3.1/dist/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+
+<body>
+
+<div th:replace="~{navigation :: navi(ShoppingCart)}"/>
+
+<div class="container">
+    <br>
+    <h1>Корзина</h1>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>Артикул</th>
+            <th>Категория</th>
+            <th>Название товара</th>
+            <th>Количество</th>
+            <th>Цена</th>
+            <th>Действия</th>
+        </tr>
+        </thead>
+
+        <tr class="responsive-row" th:each="item : ${cart.items}">
+            <td th:text="${item.product.vendorCode}"/>
+            <td th:text="${item.product.category.title}"/>
+            <td>
+                <span style="font-weight: bold;" th:text="${item.product.title}"></span>
+            </td>
+            <td th:text="${item.quantity}"/>
+            <td th:text="${item.product.price * item.quantity}"/>
+            <td>
+                <a th:href="@{'/shop/cart/remove/' + ${item.product.id}}">Удалить</a>
+            <td/>
+        </tr>
+    </table>
+    <a type="button" class="btn btn-primary" th:href="@{/shop/order}">Оформить заказ</a>
+</div>
+
+</body>
+</html>
