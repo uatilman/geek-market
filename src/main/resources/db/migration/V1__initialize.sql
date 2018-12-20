@@ -83,6 +83,8 @@ CREATE TABLE orders (
   status_id   INT(11) NOT NULL,
   create_at   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   update_at   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  order_code  VARCHAR(255) NULL,
+  UNIQUE INDEX order_code_UNIQUE (order_code ASC),
   PRIMARY KEY (id),
   CONSTRAINT FK_USER_ID FOREIGN KEY (user_id)
   REFERENCES users (id),
@@ -113,7 +115,7 @@ VALUES
 
 INSERT INTO users (username,password,first_name,last_name,email,phone)
 VALUES
-('admin','$2a$04$Fx/SX9.BAvtPlMyIIqqFx.hLY2Xp8nnhpzvEEVINvVpwIPbA3v/.i','Admin','Admin','admin@gmail.com','+79881111111');
+('admin','$2a$04$Fx/SX9.BAvtPlMyIIqqFx.hLY2Xp8nnhpzvEEVINvVpwIPbA3v/.i','Юрий','Admin','uatilman@gmail.com','+79104668422');
 
 INSERT INTO users_roles (user_id, role_id)
 VALUES

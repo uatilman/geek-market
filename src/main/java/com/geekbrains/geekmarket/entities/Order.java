@@ -38,4 +38,8 @@ public class Order {
     @Column(name = "update_at")
     @CreationTimestamp
     private LocalDateTime updateAt;
+
+    @Column(name = "order_code")
+    private String order_code;
+
 }
