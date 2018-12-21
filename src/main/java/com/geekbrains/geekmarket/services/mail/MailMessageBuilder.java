@@ -6,6 +6,10 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
+/**
+ * Класс отвечает за формирование html страниц на основе переданных параметров и шаблона Thymleaf.
+ */
+
 @Service
 public class MailMessageBuilder {
 
@@ -13,6 +17,7 @@ public class MailMessageBuilder {
      * Атрибут заказа
      */
     private static final String VARIABLE_ORDER = "order";
+
     /**
      * Название шаблона thymeleaf, из которого формируется почтовое сообщение
      */
@@ -24,8 +29,8 @@ public class MailMessageBuilder {
      * Метод формирует из шаблона thymeleaf MAIL_ORDER_PAGE итоговую html страницу.
      *
      * @param order заказ, который сделал пользователь, используются для рендеринга html страницы сообщения
-     * и для извлечения данных о пользователе.
-     * Для добавления атрибута VARIABLE_ORDER на thymeleaf шаблон используется контекст приложения.
+     *              и для извлечения данных о пользователе.
+     *              Для добавления атрибута VARIABLE_ORDER на thymeleaf шаблон используется контекст приложения.
      * @return html страницу, вствляемую в почтовое сообщение
      */
     public String buildOrderEmail(Order order) {

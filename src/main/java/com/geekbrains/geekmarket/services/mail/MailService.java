@@ -12,6 +12,10 @@ import javax.mail.internet.MimeMessage;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * Сервис отправки сообщений.
+ */
+
 // TODO: 20.12.2018 вынести в отдельный микросервис
 @Service
 public class MailService {
