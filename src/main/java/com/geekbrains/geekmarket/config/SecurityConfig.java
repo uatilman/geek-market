@@ -53,8 +53,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/authenticateTheUser")
                 .successHandler(customAuthenticationSuccessHandler)
                 .permitAll()
-                .and()
-                .csrf().ignoringAntMatchers("/api/**");
+                .and();
+//                .csrf().ignoringAntMatchers("/api/**");
     }
 
     @Bean
