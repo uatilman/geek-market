@@ -31,9 +31,7 @@ public class MailMessageBuilder {
     public String buildOrderEmail(Order order) {
         Context context = new Context();
         context.setVariable(VARIABLE_ORDER, order);
-        String result = templateEngine.process(MAIL_ORDER_PAGE, context);
-        System.out.println(result);
-        return result;
+        return templateEngine.process(MAIL_ORDER_PAGE, context);
     }
 
     @Autowired
