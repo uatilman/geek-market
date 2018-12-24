@@ -38,4 +38,13 @@ public class Order {
     @Column(name = "update_at")
     @CreationTimestamp
     private LocalDateTime updateAt;
+
+    /**
+     * Поле добавлено на перспективу,
+     * может служить уникальным идентификатором страницы заказа для незарегистрированных пользователей.
+     * По данному полю можно формировать уникальную ссылку и вставлять ее в письмо заказа.
+     */
+    @Column(name = "order_code")
+    private String order_code;
+
 }
